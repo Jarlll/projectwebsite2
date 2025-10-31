@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Final Website</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.min.css" />
   <style>
 
         .wrap {
-            margin: 50px auto 0;
-            padding: 50px;
+            margin: 0;
+            padding: 0 50px;
         }
 
         /*.gallery {
@@ -105,7 +105,7 @@
             transform: translateY(-2px) scale(0.98);
             box-shadow: 0 8px 20px rgba(0,0,0,0.16);
         }
-            .gallery:has(.image:hover) .image:not(:hover) {
+        .gallery:has(.image:hover) .image:not(:hover) {
             filter: brightness(0.6);
             transform: none;  
         }
@@ -115,12 +115,64 @@
         }
         h1 {
             text-align: center;
-            color: white;
+            background: linear-gradient(to right, #00aaff, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font-family: fantasy;
             margin-bottom: 30px;
             font-size: 100px;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5 );
+            filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.5));
+            padding-top: 11vh;
+            position: relative;
+            z-index: 1;
         }
+
+        .nav-wrapper {
+            display: flex;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            z-index: 1000;
+        }
+        .nav-wrapper li {
+          background-color: rgba(70, 20, 70, 0.3);
+          backdrop-filter: blur(5px);
+          border-radius: clamp(20px, 2vw, 40px);
+          box-shadow: 2px 2px 30px 2px rgba(255, 255, 255, 0.5);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          -webkit-tap-highlight-color: transparent;
+          cursor: pointer;
+          transition: transform .1s ease-in, box-shadow .2s ease, background-color .1s ease;
+        } 
+        .nav-wrapper li a {
+          height: clamp(50px, 6vh, 80px);
+          padding: 0 clamp(20px, 2vw, 30px);
+          color: white;
+          text-decoration: none;
+          font-family: "Courier New", monospace;
+          font-weight: 700;
+          font-size: clamp(0.8rem, 1.8vw, 1.3rem);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .nav-wrapper li:hover {
+          background-color: rgba(0, 255, 255, 0.5);
+          transform: translateY(-4px) scale(1.1);
+          box-shadow: 2px 2px 40px 4px rgba(0, 255, 255, 0.5), 0px 5px 10px 1px rgba(0, 0, 0, 0.5);
+          cursor: pointer;
+        }
+        .nav-wrapper li:active {
+          transform: translateY(0px) scale(0.98);
+          box-shadow: 2px 2px 40px 2px rgba(0, 255, 255, 0.8);
+        }
+
         /* Responsive tweaks: fewer columns on small screens */
         @media (max-width: 600px) {
             .gallery { column-width: 160px; column-gap: 10px; }
@@ -128,23 +180,30 @@
   </style>
 </head>
 <body>
+  <img src="internal/cictlogo.jfif" class="logo" alt="cictlogo">
   <nav class="nav-bar">
-    <h2>Portfolio</h2>
-    <ul class="links">
-      <li><a href="index.html" id="h-btn"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="index.html#about" id="a-btn"><i class="fas fa-info-circle"></i> About</a></li>
-      <li class="dropdown-parent"><a href="#top" id="c-btn"><i class="fas fa-photo-video"></i> Content</a>
-      <ul class="dropdown">
-    <li><a href="#nature">Nature</a></li>
-    <li><a href="#animals">Animals</a></li>
-    <li><a href="#japan">Japan</a></li>
+    <h2>Clipnest</h2>
+   <ul class="links">
+     <li><a href="index.html" id="h-btn"><i class="fas fa-home"></i>Home</a></li>
+     <li><a href="about.html" id="a-btn"><i class="fas fa-info-circle"></i>About</a></li>
+     <li class="dropdown-parent"><a href="#" id="c-btn"><i class="fas fa-photo-video"></i>Content &#9662;</a>
+         <ul class="dropdown">
+   <li><a href="content.html">Image</a></li>
+   <li><a href="videos.html">Videos</a></li>
+   <li><a href="#">Projects</a></li>
+ </ul>
+    </li>
+    <li><a href="contact.html"><i class="fas fa-paper-plane"></i>Contact</a></li>
+   </ul>
+ </nav>
+  <ul class="nav-wrapper">
+    <li><a href="#images">Images</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="#projects">Projects</a></li>
   </ul>
-      </li>
-    </ul>
-  </nav>
 
   <div class="wrap">
-        <h1>GALLERY</h1>
+        <h1 id="images">GALLERY</h1>
         <div class="gallery">
             <img src="internal/bike1.jfif" class="image" alt="">
             <img src="internal/bike2.jfif" class="image" alt="">
@@ -173,7 +232,12 @@
             <img src="online/animals11.jfif" class="image" alt="">
             <img src="online/animals12.jfif" class="image" alt="">
             <img src="online/animals13.jfif" class="image" alt="">
-
+            <img src="catmc.jpg" alt="" class="image">
+            <img src="catmeme.jpg" alt="" class="image">
+            <img src="cfriends.jfif" alt="" class="image">
+            <img src="chllcapy.jfif" alt="" class="image">
+            <img src="cutecat.jpg" alt="" class="image">
+            <img src="galeri.jfif" alt="" class="image">
             <img src="online/art1.jfif" class="image" alt="">
             <img src="online/art2.jfif" class="image" alt="">
             <img src="online/art3.jfif" class="image" alt="">
@@ -199,13 +263,7 @@
             <img src="try gallery/download (6).jfif" class="image" alt="">
             <img src="try gallery/download.jfif" class="image" alt="">
     </div>
-    <h1>VIDEOS</h1>
-    <div class="gallery">
-      <video src="cats/cute4.mp4" class="image" ></video>
-      <video src="cats/mc1.mp4" class="image" ></video>
-      <video src="cats/mc2.mp4" class="image" ></video>
-      <video src="cats/mc6.mp4" class="image" ></video>
-    </div>
+
 
     <!-- Lightbox Overlay for Images & Videos -->
 <div class="lightbox" id="lightbox">
@@ -215,15 +273,14 @@
 
 
     <!-- Masonry and imagesLoaded libraries -->
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
 
 <script>
-  // Get all gallery containers (if there are multiple)
+  // ---------- Masonry + imagesLoaded + video metadata ----------
   const galleryGrids = document.querySelectorAll('.gallery');
 
   galleryGrids.forEach(grid => {
-    // Initialize Masonry for this gallery
     const msnry = new Masonry(grid, {
       itemSelector: '.image',
       columnWidth: 260,
@@ -231,38 +288,101 @@
       fitWidth: true
     });
 
-    // Wait until all images & videos inside the gallery are fully loaded
+    // Wait for images first
     imagesLoaded(grid, { background: true }, function () {
-      msnry.layout(); // Re-layout after images are loaded
+      // Then wait for videos
+      const videos = grid.querySelectorAll('video');
+
+      let loadedCount = 0;
+      const total = videos.length;
+
+      if (total === 0) {
+        msnry.layout(); // Only images
+      } else {
+        videos.forEach(video => {
+          video.addEventListener('loadedmetadata', () => {
+            loadedCount++;
+            if (loadedCount === total) {
+              msnry.layout(); // Re-layout when all videos are ready
+            }
+          });
+        });
+      }
     });
 
-    // Optional: If your gallery is shown after clicking a tab/button, re-layout it
-    // Example: For your "Content" button with id="c-btn"
+    // Optional: re-layout when showing the gallery (e.g., on tab click)
     document.getElementById('c-btn')?.addEventListener('click', () => {
       setTimeout(() => {
         msnry.layout();
-      }, 100); // slight delay to allow DOM visibility
+      }, 100);
     });
   });
 
+  // ---------- Lazy Load Videos with IntersectionObserver ----------
+  const lazyVideos = document.querySelectorAll('video.lazy-video');
 
+  if ('IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
 
+          if (!video.src) {
+            video.src = video.dataset.src;
+            video.load();
+          }
+
+          // Trigger layout update
+          video.addEventListener('loadedmetadata', () => {
+            Masonry.data(video.closest('.gallery'))?.layout();
+          });
+
+          video.classList.remove('lazy-video');
+          observer.unobserve(video);
+        }
+      });
+    }, {
+      rootMargin: '200px',
+      threshold: 0.25
+    });
+
+    lazyVideos.forEach(video => {
+      videoObserver.observe(video);
+    });
+  } else {
+    // Fallback for older browsers
+    lazyVideos.forEach(video => {
+      video.src = video.dataset.src;
+      video.load();
+      video.classList.remove('lazy-video');
+    });
+  }
+
+  // ---------- Fix layout if user lands directly on #videos ----------
+  window.addEventListener('load', () => {
+    if (window.location.hash === '#videos') {
+      setTimeout(() => {
+        galleryGrids.forEach(grid => {
+          Masonry.data(grid)?.layout();
+        });
+      }, 200);
+    }
+  });
+
+  // ---------- Lightbox Logic ----------
   const lightbox = document.getElementById('lightbox');
   const lightboxContent = document.getElementById('lightbox-content');
   const closeBtn = document.getElementById('closeBtn');
 
-  // Clear lightbox function
   function clearLightbox() {
     lightboxContent.innerHTML = '';
   }
 
-  // Handle open
   document.querySelectorAll('.gallery .image').forEach(media => {
     media.addEventListener('click', () => {
-      clearLightbox(); // clear old content first
+      clearLightbox();
       lightbox.style.display = 'flex';
 
-      // If it's an image
       if (media.tagName === 'IMG') {
         const img = document.createElement('img');
         img.src = media.src;
@@ -270,10 +390,7 @@
         img.style.maxWidth = '90vw';
         img.style.maxHeight = '90vh';
         lightboxContent.appendChild(img);
-      }
-
-      // If it's a video
-      else if (media.tagName === 'VIDEO') {
+      } else if (media.tagName === 'VIDEO') {
         const video = document.createElement('video');
         video.src = media.src;
         video.controls = true;
@@ -287,7 +404,6 @@
     });
   });
 
-  // Close logic
   closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
     clearLightbox();
@@ -300,16 +416,14 @@
     }
   });
 
-  // Optional: close with ESC key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       lightbox.style.display = 'none';
       clearLightbox();
     }
   });
-
-
 </script>
+
 
 </body>
 </html>

@@ -4,38 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Final Website</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.min.css" />
   <style>
           /* Main content styles */
 .hero-section {
      position: relative;
      display: flex;
      justify-content: center;
-     align-items: center;
      width: 100%;
-     min-height: 100vh;
+     height: 100vh;
+     max-height: 100vh;
      flex-direction: column;
-     min-height: 100vh;
-}
-.content-box {
-     position: relative;
-     width: clamp(280px, 80%, 900px);
-     max-width: 100%;
-     height: clamp(200px, 40vh, 400px);
-     border-radius: clamp(20px, 3vw, 30px);
-     background-color: rgba(70, 20, 70, 0.3);
-     box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.1);
-     backdrop-filter: blur(5px);
-     opacity: 0;
-     transition: opacity 1.5s ease-in-out, transform 0.8s;
-     transform: scale(0.5);
-}
-.content-box h1 {
-     font-family: Cursive;
-     color: white;
-     font-size: clamp(1rem, 4vw, 2.5rem);
-     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 .cb-1 {
      display: flex;
@@ -43,88 +23,98 @@
      justify-content: center;
      align-items: flex-start;
      background: none;
-     padding-left: clamp(10px, 3vw, 40px);
      transform: scale(1);
+     box-shadow: 0;
+     padding-left: 100px;
+     width: 75%;
+     gap: 20px;
 }
 .cb-1 h1 {
-     position: static;
-     text-align: left;
-     font-family: fantasy;
-     transform: none;
-     font-size: clamp(3.5rem, 7vw, 5rem);
+     font-size: 3rem;
+     line-height: 1;
+     font-family: "Montserrat", sans-serif;
      font-weight: 800;
+     font-size: 4.5rem;
+     width: 100%;
+     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+     color: white;
 }
 .cb-1 p {
-     font-family: Cursive;
-     color: cyan;
-     font-size: clamp(2rem, 3vw, 2.2rem);
+     font-size: 1.3rem;
+          line-height: 1;
+          font-family: "Open Sans", sans-serif;
+          font-weight: 500;
+          color: cyan;
 }
-.d1 .content-box {
-     box-shadow: none;
-     opacity: 1;
+.hero-icons {
+  position: relative;
+  display: flex;
+  position: absolute;
+  right: 1%;
+  bottom: 32vh;
+  z-index: 1;
+  animation: floatIcon 8s ease-in-out infinite alternate;
 }
-.d2 .content-box {
-     width: 100%; 
-     border-radius: 0;
-     height: clamp(250px, 45vh, 450px);
-     padding: 50px 70px;
+.hero-icons p {
+  font-size: 9rem;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+  filter: saturate(2) drop-shadow(0 5px 25px rgba(0, 0, 0, 0.5));
 }
-.d2 .prgrph {
-    color: #fff;
-     font-size: 20px;
+.hero-icons p:nth-child(1) {
+  transform: translateY(130px) translateX(70px);
 }
-.d2 hr {
-     border: none;
-     height: 2px;
-     background-color: #fff;
-     margin: 20px 0;
-     width: 50%;
+
+.hero-icons p:nth-child(2) {
+  transform: translateY(0px) translateX(0px);
 }
-/* :target & hover reveal */
-.hero-section:target .content-box {
-     opacity: 1;
-     transform: scale(1);
+
+.hero-icons p:nth-child(3) {
+  transform: translateY(150px) translateX(-70px) rotate(25deg) scale(0.9);
 }
-.d2:hover .content-box {
-     opacity: 1;
-     transform: scale(1);
+.space {
+  text-shadow: 0 0 25px rgba(255, 100, 250, 0.2);
+  background: linear-gradient(90deg, #ff74c4, #a14fff);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  animation: floatIcon 8s ease-in-out infinite alternate;
+}
+@keyframes floatIcon {
+  0% { transform: translateY(0px) rotate(0deg);}
+  50% { transform: translateY(-10px) rotate(1deg) scale(1.010);}
+  100%  { transform: translateY(-15px) rotate(-1deg); scale: 1.020;}
 }
   </style>
 </head>
 <body>
+     <img src="internal/cictlogo.jfif" class="logo" alt="cictlogo">
   <nav class="nav-bar">
-     <h2>Portfolio</h2>
+     <h2>Clipnest</h2>
     <ul class="links">
-      <li><a href="#home" id="h-btn"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#about" id="a-btn"><i class="fas fa-info-circle"></i> About</a></li>
-      <li class="dropdown-parent"><a href="content.html" id="c-btn"><i class="fas fa-photo-video"></i> Content</a>
+      <li><a href="#home" id="h-btn"><i class="fas fa-home"></i>Home</a></li>
+      <li><a href="about.html" id="a-btn"><i class="fas fa-info-circle"></i>About</a></li>
+      <li class="dropdown-parent"><a href="#" id="c-btn"><i class="fas fa-photo-video"></i>Content &#9662;</a>
           <ul class="dropdown">
-    <li><a href="content.html#nature">Nature</a></li>
-    <li><a href="content.html#animals">Animals</a></li>
-    <li><a href="content.html#japan">Japan</a></li>
+    <li><a href="content.html">Image</a></li>
+    <li><a href="videos.html">Videos</a></li>
+    <li><a href="#">Projects</a></li>
   </ul>
      </li>
+     <li><a href="contact.html"><i class="fas fa-paper-plane"></i>Contact</a></li>
     </ul>
   </nav>
   <div class="hero-section d1" id="home">
        <div class="content-box cb-1">
-       <h1>WELCOME</h1>
-       <p>To Jarl's Personal Portfolio </p>
+       <h1>THE <span class="space">FUN SPACE</span> FOR ART, IDEAS, AND PERSONAL CREATIONS</h1>
+       <p>Where every image, video, and idea comes together to celebrate the art of expression.</p>
        </div>
-       </div>
-  <div class="hero-section d2" id="about">
-       <div class="content-box">
-       <h1>About</h1>
-       <hr>
-       <p class="prgrph">Welcome to my personal entertainment space — a cozy little corner of the internet filled with things that make me smile. From adorable cat videos to unique personal projects, etc., this site is home to all kinds of entertaining medias that spark joy and curiosity. Whether you're here to unwind, explore, or just pass the time, there's always something new to discover. Dive in and enjoy the mix.</p>
-       </div>
-       <footer>
-  <p>
-    &copy; 2025 BSIS - 1D. All rights reserved.
-    &nbsp;|&nbsp;
-    <a href="mailto:jarlaclancioco@gmail.com">Cioco, Jarl Christian</a>
-  </p>
-</footer>
+       <div class="hero-icons">
+    <p>🎨</p>
+    <p>📸</p>
+    <p>🏞️</p>
+  </div>
   </div>
 </body>
 </html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css" />
+    <style>
+      .hero {
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     flex-direction: column;
+     padding: 160px 0 70px;
+     margin: 0;
+      }
+      .section-header h2 {
+        position: relative;
+        z-index: 1;
+        font-size: 2.5rem;
+        color: #00ffff;
+        text-shadow: 0 0 20px #00ffff8a;
+        margin-bottom: 10px;
+        font-weight: 800;
+}
+
+.about-section .info-icon {
+  position: absolute;
+  color: #fff;
+  top: 25px;
+  right: 25px;
+  font-size: 2rem;
+}
+
+.divider {
+  width: 100px;
+  height: 4px;
+  margin: 0 auto 30px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #a14fff, #ff74c4);
+  box-shadow: 0 0 15px rgba(255, 120, 255, 0.8);
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+      .about-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-width: 60%;
+        max-height: 80vh;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 40px;
+        z-index: 1;
+        padding: 60px 50px;
+        box-shadow: 0 0 40px rgba(150, 50, 255, 0.3);
+        overflow: hidden;
+        animation: floatCard 5s ease-in-out infinite alternate;
+        background-color: rgba(219, 60, 219, 0.3);
+        position: relative;
+      }
+      .about-section,
+.creator-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+      .glow-divider {
+  height: 2px;
+  margin: 40px 0;
+  background: linear-gradient(90deg, transparent, #ff9efc, transparent);
+  box-shadow: 0 0 20px #ff9efc;
+}
+.creator-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.creator-avatar img {
+  position: relative;
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 35px rgba(255, 150, 255, 0.5);
+  animation: floatIcon 6s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.creator-text {
+  max-width: 800px;
+  text-align: center;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.highlight {
+  color: #00ffff;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00ffffb4;
+}
+
+/* Button */
+.about-footer {
+  text-align: center;
+}
+
+.explore-btn {
+  background: linear-gradient(90deg, #a14fff, #ff74c4);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: 0.4s;
+  box-shadow: 0 0 20px rgba(255, 100, 250, 0.5);
+  display: inline-block;
+}
+
+.explore-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(255, 100, 250, 0.8);
+}
+
+.explore-btn:active {
+  transform: scale(0.9);
+}
+
+/* Animations */
+@keyframes floatCard {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-20px) scale(1.015); }
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0px) rotate(0deg);}
+  50% { transform: translateY(-10px) rotate(3deg) scale(1.010);}
+  100%  { transform: translateY(-25px) rotate(-5deg); scale: 1.020;}
+}
+#dropdown:target {
+  transform: scaleY(1);
+     visibility: visible;
+     opacity: 1;
+     pointer-events: auto;
+}
+    </style>
+</head>
+<body>
+    <img src="internal/cictlogo.jfif" class="logo" alt="cictlogo">
+    <nav class="nav-bar">
+      <h2>Clipnest</h2>
+     <ul class="links">
+       <li><a href="index.html" id="h-btn"><i class="fas fa-home"></i>Home</a></li>
+       <li><a href="about.html" id="a-btn"><i class="fas fa-info-circle"></i>About</a></li>
+       <li class="dropdown-parent"><a href="#" id="c-btn"><i class="fas fa-photo-video"></i>Content &#9662;</a>
+           <ul class="dropdown" id="dropdown">
+     <li><a href="content.html">Image</a></li>
+     <li><a href="videos.html">Videos</a></li>
+     <li><a href="#">Projects</a></li>
+   </ul>
+      </li>
+      <li><a href="contact.html"><i class="fas fa-paper-plane"></i>Contact</a></li>
+     </ul>
+   </nav>
+  <main class="hero">
+  <section class="about-section">
+    <div class="section-header">
+      <h2>🌌 ABOUT THE CLIPNEST</h2>
+      <div class="divider"></div>
+    </div>
+    <p>
+      <strong>Clipnest</strong> is a digital galaxy built for creativity. 
+      A space where design, innovation, and technology orbit in harmony.
+      It’s a cosmic hub that welcomes dreamers, developers, and creators 
+      who believe that imagination has no limit.
+    </p>
+    <p>
+      Every corner of Clipnest is inspired by the universe — glowing gradients,
+      soft orbits, and infinite possibilities. Whether you’re exploring content, 
+      connecting ideas, or discovering inspiration, you’re part of a digital constellation.
+    </p>
+    <i class="fas fa-info-circle info-icon"></i>
+  </section>
+  <div class="glow-divider"></div>
+
+  <section class="creator-section">
+    <div class="section-header">
+      <h2>👨‍🚀 THE CREATOR</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="creator-content">
+      <div class="creator-avatar">
+        <img src="internal/me1.jfif" alt="Creator Avatar">
+      </div>
+
+      <div class="creator-text">
+        <p>
+          Hey there! I’m <span class="highlight">Jarl Christian Cioco</span>, 
+          the creator of <strong>Clipnest</strong>. I’m passionate about turning
+          ideas into visual experiences that feel alive and meaningful.
+        </p>
+        <p>
+          My mission is to blend creativity and technology, one project at a time,
+          crafting digital worlds that inspire connection, curiosity, and cosmic wonder.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-footer">
+    <a href="#dropdown" class="explore-btn">✨ Explore More ✨</a>
+  </div>
+
+  </main>
+</html>
