@@ -176,7 +176,6 @@ footer a {
           animation: none !important;
      }
 }
-
 @keyframes fade {
      from {opacity: 0; }
      to {opacity: 1; }
