@@ -69,7 +69,7 @@ body::after {
 .links {
      display: flex;
      list-style: none;
-     gap: clamp(10px, 2vw, 40px);
+     gap: 15px;
 }
 .links li {
      text-align: center;
@@ -79,7 +79,7 @@ body::after {
      position: relative;
      text-decoration: none;
      color: white;
-     padding: clamp(5px, 1vw, 10px) 0;
+     padding: clamp(5px, 1vw, 10px) 5px;
      transition: color .1s ease-in, text-shadow .2s ease-in;
      font-family: Roboto, sans-serif;
      font-weight: 500;
@@ -175,4 +175,9 @@ footer a {
           transition: none !important;
           animation: none !important;
      }
+}
+
+@keyframes fade {
+     from {opacity: 0; }
+     to {opacity: 1; }
 }

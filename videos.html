@@ -11,6 +11,7 @@
         .wrap {
             margin: 0;
             padding: 0 50px;
+            animation: fade .8s ease-in ;
         }
 
         /*.gallery {
@@ -127,56 +128,81 @@
             z-index: 1;
         }
 
-        .nav-wrapper {
-            display: flex;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-            z-index: 1000;
-        }
-        .nav-wrapper li {
-          background-color: rgba(70, 20, 70, 0.3);
-          backdrop-filter: blur(5px);
-          border-radius: clamp(20px, 2vw, 40px);
-          box-shadow: 2px 2px 30px 2px rgba(255, 255, 255, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          -webkit-tap-highlight-color: transparent;
-          cursor: pointer;
-          transition: transform .1s ease-in, box-shadow .2s ease, background-color .1s ease;
-        } 
-        .nav-wrapper li a {
-          height: clamp(50px, 6vh, 80px);
-          padding: 0 clamp(20px, 2vw, 30px);
-          color: white;
-          text-decoration: none;
-          font-family: "Courier New", monospace;
-          font-weight: 700;
-          font-size: clamp(0.8rem, 1.8vw, 1.3rem);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .nav-wrapper li:hover {
-          background-color: rgba(0, 255, 255, 0.5);
-          transform: translateY(-4px) scale(1.1);
-          box-shadow: 2px 2px 40px 4px rgba(0, 255, 255, 0.5), 0px 5px 10px 1px rgba(0, 0, 0, 0.5);
-          cursor: pointer;
-        }
-        .nav-wrapper li:active {
-          transform: translateY(0px) scale(0.98);
-          box-shadow: 2px 2px 40px 2px rgba(0, 255, 255, 0.8);
-        }
+        /* NAVIGATION WRAPPER */
+.nav-wrapper {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    z-index: 1050; /* higher z-index to avoid overlaps */
+}
 
-        /* Responsive tweaks: fewer columns on small screens */
-        @media (max-width: 600px) {
-            .gallery { column-width: 160px; column-gap: 10px; }
-        }
+/* NAV ITEMS */
+.nav-wrapper li {
+    background-color: rgba(70, 20, 70, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: clamp(20px, 2vw, 40px);
+    box-shadow: 2px 2px 30px 2px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out; /* smoother hover transitions */
+}
+
+/* LINK INSIDE NAV ITEMS */
+.nav-wrapper li a {
+    height: clamp(50px, 6vh, 80px);
+    min-width: 60px; /* better tap area for mobile */
+    padding: 0 clamp(20px, 2vw, 30px);
+    color: white;
+    text-decoration: none;
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    font-size: clamp(0.8rem, 1.8vw, 1.3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* HOVER EFFECT */
+.nav-wrapper li:hover {
+    background-color: rgba(0, 255, 255, 0.5); /* slightly darker cyan */
+    transform: translateY(-4px) scale(1.1) rotate(-1deg); /* dynamic feel */
+    box-shadow: 
+        2px 2px 40px 4px rgba(0, 255, 255, 0.5),
+        0px 5px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* ACTIVE / CLICK EFFECT */
+.nav-wrapper li:active {
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 2px 2px 40px 2px rgba(0, 255, 255, 0.8);
+}
+
+/* FOCUS FOR ACCESSIBILITY */
+.nav-wrapper li:focus-within {
+    outline: 2px solid cyan;
+    outline-offset: 4px;
+}
+
+/* RESPONSIVE TOUCH / MOBILE IMPROVEMENT */
+@media (max-width: 600px) {
+    .nav-wrapper {
+        gap: 12px;
+    }
+    .nav-wrapper li a {
+        height: 60px;
+        padding: 0 15px;
+        font-size: 1rem;
+    }
+}
+
   </style>
 </head>
 <body>

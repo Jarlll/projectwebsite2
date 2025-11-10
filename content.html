@@ -10,15 +10,16 @@
 
         .wrap {
             margin: 0;
-            padding: 0 50px;
+            padding: 0 50px 50px;
+            animation: fade .8s ease-in ;
         }
 
-        /*.gallery {
-            column-width: 260px;
+        .gallery {
+            column-width: 300px;
             column-gap: 20px;
         }
         /* Make each image act like a block inside the column and avoid breaks */
-        /*.gallery .image {
+        .gallery .image {
             width: 100%;
             display: block;
             margin: 0 0 20px;
@@ -28,15 +29,15 @@
             break-inside: avoid;
             position: relative;
             z-index: 2;
-        }*/
+        }
 
-        .gallery {
+        /* .gallery {
     width: 90%;
     margin: auto;
 }
 
 /* Ensure all items have the same width */
-.image {
+/*.image {
     width: 260px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -45,7 +46,7 @@
     transition: filter .3s ease, transform .2s ease, box-shadow .2s ease;
     position: relative;
     z-index: 2;
-}
+} */
 
 /* Make images responsive inside the block */
 .image img {
@@ -54,11 +55,9 @@
     border-radius: 8px;
 }
 
-/* Lightbox container */
 .lightbox {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.85);
@@ -66,33 +65,73 @@
   justify-content: center;
   align-items: center;
   z-index: 10000;
+  padding: 20px;
+  transition: opacity .3s ease;
 }
 
-/* Inner content (image or video) */
-.lightbox-content img,
-.lightbox-content video {
-  max-width: 90vw;
-  max-height: 90vh;
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 90%;
+}
+
+.lightbox-content img {
+  max-width: 50vw;
+  max-height: 80vh;
   border-radius: 10px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 30px rgba(255,255,255,0.3);
   object-fit: contain;
 }
 
-
-/* Close button */
-.lightbox .close {
-  position: absolute;
-  top: 30px;
-  right: 50px;
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-  z-index: 10001;
-  transition: 0.3s ease;
+.lightbox-content p {
+  flex: 1;
+  font-size: 1.2rem;
+  color: #ddd;
+  line-height: 1.6;
+  text-align: left;
+  max-width: 300px;
 }
+
+/* Close button inside lightbox */
+.lightbox .close {
+  position: absolute;     /* position it relative to the lightbox */
+  top: 30px;              /* distance from top */
+  right: 50px;            /* distance from right */
+  font-size: 40px;        /* size of the × */
+  font-weight: bold;      
+  color: white;           /* visible against dark overlay */
+  cursor: pointer;        /* hand cursor on hover */
+  z-index: 10001;         /* make sure it’s above the image */
+  transition: color .3s ease;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6); /* glow for contrast */
+}
+
+/* Hover effect */
 .lightbox .close:hover {
   color: red;
+}
+
+
+@media (max-width: 768px) {
+  .lightbox-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .lightbox-content img {
+    max-width: 80vw;
+  }
+  .lightbox-content p {
+    max-width: 90%;
+  }
 }
 
 
@@ -109,7 +148,6 @@
             filter: brightness(0.6);
             transform: none;  
         }
-        /* make hovered image pop above blurred ones */
         .gallery .image:hover {
             z-index: 2;
         }
@@ -127,56 +165,82 @@
             z-index: 1;
         }
 
-        .nav-wrapper {
-            display: flex;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-            z-index: 1000;
-        }
-        .nav-wrapper li {
-          background-color: rgba(70, 20, 70, 0.3);
-          backdrop-filter: blur(5px);
-          border-radius: clamp(20px, 2vw, 40px);
-          box-shadow: 2px 2px 30px 2px rgba(255, 255, 255, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.3);
-          -webkit-tap-highlight-color: transparent;
-          cursor: pointer;
-          transition: transform .1s ease-in, box-shadow .2s ease, background-color .1s ease;
-        } 
-        .nav-wrapper li a {
-          height: clamp(50px, 6vh, 80px);
-          padding: 0 clamp(20px, 2vw, 30px);
-          color: white;
-          text-decoration: none;
-          font-family: "Courier New", monospace;
-          font-weight: 700;
-          font-size: clamp(0.8rem, 1.8vw, 1.3rem);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .nav-wrapper li:hover {
-          background-color: rgba(0, 255, 255, 0.5);
-          transform: translateY(-4px) scale(1.1);
-          box-shadow: 2px 2px 40px 4px rgba(0, 255, 255, 0.5), 0px 5px 10px 1px rgba(0, 0, 0, 0.5);
-          cursor: pointer;
-        }
-        .nav-wrapper li:active {
-          transform: translateY(0px) scale(0.98);
-          box-shadow: 2px 2px 40px 2px rgba(0, 255, 255, 0.8);
-        }
+        /* NAVIGATION WRAPPER */
+.nav-wrapper {
+    display: flex;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    z-index: 1050; /* higher z-index to avoid overlaps */
+}
 
-        /* Responsive tweaks: fewer columns on small screens */
-        @media (max-width: 600px) {
-            .gallery { column-width: 160px; column-gap: 10px; }
-        }
+/* NAV ITEMS */
+.nav-wrapper li {
+    background-color: rgba(70, 20, 70, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: clamp(20px, 2vw, 40px);
+    box-shadow: 2px 2px 30px 2px rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out; /* smoother hover transitions */
+}
+
+/* LINK INSIDE NAV ITEMS */
+.nav-wrapper li a {
+    height: clamp(50px, 6vh, 80px);
+    min-width: 60px; /* better tap area for mobile */
+    padding: 0 clamp(20px, 2vw, 30px);
+    color: white;
+    text-decoration: none;
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+    font-size: clamp(0.8rem, 1.8vw, 1.3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* HOVER EFFECT */
+.nav-wrapper li:hover {
+    background-color: rgba(0, 255, 255, 0.5); /* slightly darker cyan */
+    transform: translateY(-4px) scale(1.1) rotate(-1deg); /* dynamic feel */
+    box-shadow: 
+        2px 2px 40px 4px rgba(0, 255, 255, 0.5),
+        0px 5px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* ACTIVE / CLICK EFFECT */
+.nav-wrapper li:active {
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 2px 2px 40px 2px rgba(0, 255, 255, 0.8);
+}
+
+/* FOCUS FOR ACCESSIBILITY */
+.nav-wrapper li:focus-within {
+    outline: 2px solid cyan;
+    outline-offset: 4px;
+}
+
+/* RESPONSIVE TOUCH / MOBILE IMPROVEMENT */
+@media (max-width: 600px) {
+    .nav-wrapper {
+        gap: 12px;
+    }
+    .nav-wrapper li a {
+        height: 60px;
+        padding: 0 15px;
+        font-size: 1rem;
+    }
+}
+
+
   </style>
 </head>
 <body>
@@ -205,7 +269,7 @@
   <div class="wrap">
         <h1 id="images">GALLERY</h1>
         <div class="gallery">
-            <img src="internal/bike1.jfif" class="image" alt="">
+            <img src="internal/bike1.jfif" class="image" alt="" data-desc="AHHAHAHAHHAHA">
             <img src="internal/bike2.jfif" class="image" alt="">
             <img src="internal/bike3.jfif" class="image" alt="">
             <img src="internal/city1.jfif" class="image" alt="">
@@ -271,9 +335,39 @@
   <div class="lightbox-content" id="lightbox-content"></div>
 </div>
 
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxContent = document.getElementById('lightbox-content');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Open image in modal with description
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        const desc = img.dataset.desc || 'No description available.';
+        lightbox.classList.add('active');
+        lightboxContent.innerHTML = `
+    <p>${desc}</p>
+    <img src="${img.src}" alt="${img.alt}">
+`;
+
+      });
+    });
+
+    // Close modal (click X or background)
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+
+    // Close with ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+  </script>
+
 
     <!-- Masonry and imagesLoaded libraries -->
-<script src="js/masonry.pkgd.min.js"></script>
+<!-- <script src="js/masonry.pkgd.min.js"></script>
 <script src="js/imagesloaded.pkgd.min.js"></script>
 
 <script>
@@ -422,7 +516,7 @@
       clearLightbox();
     }
   });
-</script>
+</script> -->
 
 
 </body>
