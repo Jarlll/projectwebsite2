@@ -6,259 +6,16 @@
   <title>Final Website</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/all.min.css" />
-  <style>
-
-        .wrap {
-            margin: 0;
-            padding: 0 50px 50px;
-            animation: fade .8s ease-in ;
-        }
-
-        .gallery {
-            column-width: 300px;
-            column-gap: 20px;
-        }
-        /* Make each image act like a block inside the column and avoid breaks */
-        .gallery .image {
-            width: 100%;
-            display: block;
-            margin: 0 0 20px;
-            border-radius: 8px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-            transition: filter .3s ease, transform .2s ease, box-shadow .2s ease;
-            break-inside: avoid;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* .gallery {
-    width: 90%;
-    margin: auto;
-}
-
-/* Ensure all items have the same width */
-/*.image {
-    width: 260px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    overflow: hidden;
-    transition: filter .3s ease, transform .2s ease, box-shadow .2s ease;
-    position: relative;
-    z-index: 2;
-} */
-
-/* Make images responsive inside the block */
-.image img {
-    width: 100%;
-    display: block;
-    border-radius: 8px;
-}
-
-.lightbox {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  padding: 20px;
-  transition: opacity .3s ease;
-}
-
-.lightbox.active {
-  display: flex;
-  opacity: 1;
-}
-
-.lightbox-content {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 90%;
-}
-
-.lightbox-content img {
-  max-width: 50vw;
-  max-height: 80vh;
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(255,255,255,0.3);
-  object-fit: contain;
-}
-
-.lightbox-content p {
-  flex: 1;
-  font-size: 1.2rem;
-  color: #ddd;
-  line-height: 1.6;
-  text-align: left;
-  max-width: 300px;
-}
-
-/* Close button inside lightbox */
-.lightbox .close {
-  position: absolute;     /* position it relative to the lightbox */
-  top: 30px;              /* distance from top */
-  right: 50px;            /* distance from right */
-  font-size: 40px;        /* size of the × */
-  font-weight: bold;      
-  color: white;           /* visible against dark overlay */
-  cursor: pointer;        /* hand cursor on hover */
-  z-index: 10001;         /* make sure it’s above the image */
-  transition: color .3s ease;
-  text-shadow: 0 0 10px rgba(0,0,0,0.6); /* glow for contrast */
-}
-
-/* Hover effect */
-.lightbox .close:hover {
-  color: red;
-}
-
-
-@media (max-width: 768px) {
-  .lightbox-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  .lightbox-content img {
-    max-width: 80vw;
-  }
-  .lightbox-content p {
-    max-width: 90%;
-  }
-}
-
-
-        .gallery .image:hover {
-            transform: translateY(-4px) scale(1.1);
-            box-shadow: 0 12px 28px rgba(0,0,0,1);
-            z-index: 3;
-        }
-        .gallery .image:active {
-            transform: translateY(-2px) scale(0.98);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.16);
-        }
-        .gallery:has(.image:hover) .image:not(:hover) {
-            filter: brightness(0.6);
-            transform: none;  
-        }
-        .gallery .image:hover {
-            z-index: 2;
-        }
-        h1 {
-            text-align: center;
-            background: linear-gradient(to right, #00aaff, #00ffcc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: fantasy;
-            margin-bottom: 30px;
-            font-size: 100px;
-            filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.5));
-            padding-top: 11vh;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* NAVIGATION WRAPPER */
-.nav-wrapper {
-    display: flex;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    z-index: 1050; /* higher z-index to avoid overlaps */
-}
-
-/* NAV ITEMS */
-.nav-wrapper li {
-    background-color: rgba(70, 20, 70, 0.3);
-    backdrop-filter: blur(5px);
-    border-radius: clamp(20px, 2vw, 40px);
-    box-shadow: 2px 2px 30px 2px rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    -webkit-tap-highlight-color: transparent;
-    cursor: pointer;
-    transition: all 0.25s ease-in-out; /* smoother hover transitions */
-}
-
-/* LINK INSIDE NAV ITEMS */
-.nav-wrapper li a {
-    height: clamp(50px, 6vh, 80px);
-    min-width: 60px; /* better tap area for mobile */
-    padding: 0 clamp(20px, 2vw, 30px);
-    color: white;
-    text-decoration: none;
-    font-family: "Courier New", monospace;
-    font-weight: 700;
-    font-size: clamp(0.8rem, 1.8vw, 1.3rem);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* HOVER EFFECT */
-.nav-wrapper li:hover {
-    background-color: rgba(0, 255, 255, 0.5); /* slightly darker cyan */
-    transform: translateY(-4px) scale(1.1) rotate(-1deg); /* dynamic feel */
-    box-shadow: 
-        2px 2px 40px 4px rgba(0, 255, 255, 0.5),
-        0px 5px 10px 1px rgba(0, 0, 0, 0.5);
-}
-
-/* ACTIVE / CLICK EFFECT */
-.nav-wrapper li:active {
-    transform: translateY(0px) scale(0.98);
-    box-shadow: 2px 2px 40px 2px rgba(0, 255, 255, 0.8);
-}
-
-/* FOCUS FOR ACCESSIBILITY */
-.nav-wrapper li:focus-within {
-    outline: 2px solid cyan;
-    outline-offset: 4px;
-}
-
-/* RESPONSIVE TOUCH / MOBILE IMPROVEMENT */
-@media (max-width: 600px) {
-    .nav-wrapper {
-        gap: 12px;
-    }
-    .nav-wrapper li a {
-        height: 60px;
-        padding: 0 15px;
-        font-size: 1rem;
-    }
-}
-@keyframes fade {
-     from {opacity: 0; }
-     to {opacity: 1; }
-}
-
-  </style>
 </head>
 <body>
-  <img src="internal/cictlogo.jfif" class="logo" alt="cictlogo">
+  <!-- footer moved to the end of the document to avoid overlap with fixed nav -->
+  <img src="pictures/cictlogo.jfif" class="logo" alt="cictlogo">
   <nav class="nav-bar">
     <h2>Clipnest</h2>
    <ul class="links">
      <li><a href="index.html" id="h-btn"><i class="fas fa-home"></i>Home</a></li>
      <li><a href="about.html" id="a-btn"><i class="fas fa-info-circle"></i>About</a></li>
-     <li class="dropdown-parent"><a href="#" id="c-btn"><i class="fas fa-photo-video"></i>Content &#9662;</a>
-         <ul class="dropdown">
-   <li><a href="content.html">Image</a></li>
-   <li><a href="videos.html">Videos</a></li>
-   <li><a href="#">Projects</a></li>
- </ul>
+     <li class="dropdown-parent"><a href="#top" id="c-btn"><i class="fas fa-photo-video"></i>Content</a>
     </li>
     <li><a href="contact.html"><i class="fas fa-paper-plane"></i>Contact</a></li>
    </ul>
@@ -266,261 +23,51 @@
   <ul class="nav-wrapper">
     <li><a href="#images">Images</a></li>
     <li><a href="videos.html">Videos</a></li>
-    <li><a href="#projects">Projects</a></li>
+    <li><a href="project.html">Projects</a></li>
   </ul>
 
   <div class="wrap">
-        <h1 id="images">GALLERY</h1>
+        <h1 class="content-h1" >GALLERY</h1>
         <div class="gallery">
-            <img src="internal/bike1.jfif" class="image" alt="" data-desc="AHHAHAHAHHAHA">
-            <img src="internal/bike2.jfif" class="image" alt="">
-            <img src="internal/bike3.jfif" class="image" alt="">
-            <img src="internal/city1.jfif" class="image" alt="">
-            <img src="internal/city2.jfif" class="image" alt="">
-            <img src="online/nature1.jfif" class="image" id="nature" alt="">
-            <img src="online/nature2.jfif" class="image" alt="">
-            <img src="online/nature3.jfif" class="image" alt="">
-            <img src="online/nature4.jfif" class="image" alt="">
-            <img src="online/nature5.jfif" class="image" alt="">
-            <img src="online/nature6.jfif" class="image" alt="">
-            <img src="online/nature7.jfif" class="image" alt="">
-            <img src="online/nature8.jfif" class="image" alt="">
-            <img src="online/nature9.jfif" class="image" alt="">
-            <img src="online/animals1.jfif" class="image" id="animals" alt="">
-            <img src="online/animals2.jfif" class="image" alt="">
-            <img src="online/animals3.jfif" class="image" alt="">
-            <img src="online/animals4.jfif" class="image" alt="">
-            <img src="online/animals5.jfif" class="image" alt="">
-            <img src="online/animals6.jfif" class="image" alt="">
-            <img src="online/animals7.jfif" class="image" alt="">
-            <img src="online/animals8.jfif" class="image" alt="">
-            <img src="online/animals9.jfif" class="image" alt="">
-            <img src="online/animals10.jfif" class="image" alt="">
-            <img src="online/animals11.jfif" class="image" alt="">
-            <img src="online/animals12.jfif" class="image" alt="">
-            <img src="online/animals13.jfif" class="image" alt="">
-            <img src="catmc.jpg" alt="" class="image">
-            <img src="catmeme.jpg" alt="" class="image">
-            <img src="cfriends.jfif" alt="" class="image">
-            <img src="chllcapy.jfif" alt="" class="image">
-            <img src="cutecat.jpg" alt="" class="image">
-            <img src="galeri.jfif" alt="" class="image">
-            <img src="online/art1.jfif" class="image" alt="">
-            <img src="online/art2.jfif" class="image" alt="">
-            <img src="online/art3.jfif" class="image" alt="">
-            <img src="online/art4.jfif" class="image" alt="">
-            <img src="online/japan1.jfif" class="image" id="japan" alt="">
-            <img src="online/japan2.jfif" class="image" alt="">
-            <img src="online/japan3.jfif" class="image" alt="">
-            <img src="online/japan4.jfif" class="image" alt="">
-            <img src="online/japan5.jfif" class="image" alt="">
-            <img src="online/japan6.jfif" class="image" alt="">
-            <img src="online/japan7.jfif" class="image" alt="">
-            <img src="online/japan8.jfif" class="image" alt="">
-            <img src="online/song2.jfif" class="image" alt="">
-            <img src="online/song1.jfif" class="image" alt="">
-            <img src="online/song4.jfif" class="image" alt="">
-            <img src="online/song5.jfif" class="image" alt="">
-            <img src="online/song6.jfif" class="image" alt="">
-            <img src="try gallery/— jemily.jfif" class="image" alt="">
-            <img src="try gallery/download (3).jfif" class="image" alt="">
-            <img src="try gallery/download (2).jfif" class="image" alt="">
-            <img src="try gallery/download (4).jfif" class="image" alt="">
-            <img src="try gallery/download (5).jfif" class="image" alt="">
-            <img src="try gallery/download (6).jfif" class="image" alt="">
-            <img src="try gallery/download.jfif" class="image" alt="">
-    </div>
-
+            <img src="pictures/nature1.jfif" class="image" alt="" data-desc='The sky is painted with twilight’s softest purples and blues, fading slowly as the sun dips behind distant trees. The quiet air seems to hold its breath, inviting you to pause and feel the peaceful close of day’s unfolding story.'>
+            <img src="pictures/mc1.jfif" class="image" alt="" data-desc='A pixelated sunset from a Minecraft world glows warmly in cubes of orange and gold. The simple beauty of this digital horizon reminds us of the joys found in crafted dreams and endless creativity.'>
+            <img src="pictures/bike3.jfif" class="image" alt="" data-desc=' The long shadow of a bicycle stretches across softly glowing grass as evening deepens. This quiet moment between motion and stillness holds the tender feeling of freedom shared only with fading light.'>
+            <img src="pictures/city1.jfif" class="image" alt="" data-desc='Tall glass buildings bask in the last glow of sun, reflecting soft skies while gently swaying trees stand like silent sentinels over a city settling into evening calm.'>
+            <img src="pictures/city2.jfif" class="image" alt="" data-desc='A quiet park holds puddles that mirror sky and trees, blending reflections and reality in a magical, still world. The gentle hush of approaching night wraps around the glow of distant city lights.'>
+            <img src="pictures/nature3.jfif" class="image" alt="" data-desc='Tiny white flowers scatter across rain-soaked cobblestones like stars fallen to earth. They hold fragile hope and quiet resilience beneath the endless falling of gentle rain.   '>
+            <img src="pictures/nature6.jfif" class="image" alt="" data-desc='The ocean roars endlessly as waves crash against rocky shores beneath heavy, moody skies. Every pounding breath of the sea carries ancient whispers from distant, unseen horizons, telling stories timeless and deep.   '>
+            <img src="pictures/nature9.jfif" class="image" alt="" data-desc='Under crystal-clear water, tiny starfish rest on sunlit stones, bathed in shimmering light. This tranquil undersea world sparkles like a secret treasure hidden beneath the surface of restless seas. '>
+            <img src="pictures/animals2.jfif" class="image" alt="" data-desc='A fluffy guinea pig lies peacefully, surrounded by soft hearts and twinkling stars. This cozy scene radiates innocence and warmth, capturing a small moment of pure contentment and softness. '>
+            <img src="pictures/animals10.jfif" class="image" alt="" data-desc='A black-and-white cat sits quietly beside a rain-drenched puddle. Its calm reflection on the wet pavement blurs the line between world and mirror, capturing a peaceful, rainy-day reverie.  '>
+            <img src="pictures/art1.jfif" class="image" alt="" data-desc='A tender painting focuses on a woman’s soft back and loosely gathered hair. The warm earth tones wrap her like a gentle embrace, inviting quiet reflection on beauty wrapped in mystery and solitude.  '>
+            <img src="pictures/art4.jfif" class="image" alt="" data-desc='Van Gogh’s swirling starry night bursts to life in vivid blues and yellows, where restless stars dance in cosmic rhythm, painting the sky with wonder, mystery, and eternal light.'>
+            <img src="pictures/japan2.jfif" class="image" alt="" data-desc='The red sun of Japan’s flag glows against soft pink cherry blossoms. This striking symbol stands as a proud emblem of strength and grace, surrounded by the tender beauty of fleeting spring.'>
+            <img src="pictures/japan8.jfif" class="image" alt="" data-desc='Steam rises invitingly from a rich bowl of ramen, where tender slices of meat, golden eggs, and fresh greens come together in a warm, comforting embrace that promises nourishment for body and soul.'>
+            <img src="pictures/song2.jfif" class="image" alt="" data-desc='The album cover for “Chase Atlantic” shows a deep red rose on black, a bold emblem of passion and mystery. It calls to dark emotions and sumptuous beauty held within music’s embrace.'>
+            <img src="pictures/— jemily.jfif" class="image" alt="" data-desc='A black-and-white cat sits quietly beside a rain-drenched puddle. Its calm reflection on the wet pavement blurs the line between world and mirror, capturing a peaceful, rainy-day reverie.'>
+            <img src="pictures/download (3).jfif" class="image" alt="" data-desc='A pure white lily floats on still green water, its fragile petals unfolding with quiet grace, embodying delicate beauty and peaceful solitude resting beneath the surface.'>
+            <img src="pictures/download (2).jfif" class="image" alt="" data-desc='Sunlight filters through a warm room, touching a white cat and its person resting nearby. Their calm presence speaks of quiet companionship, safe spaces, and the gentle bonding of hearts.'>
+            <img src="pictures/08266cf8-c97d-4d7a-8d09-25a1ce4e700b.jfif" alt="" class="image" data-desc='A sleek black cat curls in serene contentment, eyes softly closing as gentle hands stroke its fur. The quiet exchange of trust whirls in the soft circle of shared comfort and silent affection.'>
+            <img src="pictures/2e5d86d7-d253-40a8-9bb6-6e91bc242755.jfif" alt="" class="image" data-desc=' A lone figure’s shadow stretches long on the pavement, white shoes moving slowly as daylight softly fades. This moment sits between reality and memory—a gentle dance of light and passage.'>
+            <img src="pictures/4502dad4-d579-4a96-a06c-768b6f4aa2b9.jfif" alt="" class="image" data-desc='Sunlight filters through a warm room, touching a white cat and its person resting nearby. Their calm presence speaks of quiet companionship, safe spaces, and the gentle bonding of hearts. '>
+            <img src="pictures/b4f85fb1-0e22-4db5-9c36-b7f2463cba8e.jfif" alt="" class="image" data-desc='Two cats sit side-by-side close to a window, bathed in soft afternoon light. Together they form a picture of peace and friendship, quiet moments glowing with warmth and stillness.'>
+            <img src="pictures/download (6).jfif" class="image" alt="" data-desc='A softly glowing music playlist displays Arctic Monkeys’ songs, inviting night wanderers to lose themselves in rhythms that carry whispered stories through the quiet hours.'>
+            <img src="pictures/download.jfif" class="image" alt="" data-desc='A portrait reveals a young woman resting quietly, her dark hair framing a calm, peaceful face. She seems wrapped in soft solitude, inviting new dreams beneath morning’s gentle light.'>
+            </div>
+            
+          </div>
 
     <!-- Lightbox Overlay for Images & Videos -->
 <div class="lightbox" id="lightbox">
   <span class="close" id="closeBtn">&times;</span>
   <div class="lightbox-content" id="lightbox-content"></div>
 </div>
-
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxContent = document.getElementById('lightbox-content');
-    const closeBtn = document.getElementById('closeBtn');
-
-    // Open image in modal with description
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        const desc = img.dataset.desc || 'No description available.';
-        lightbox.classList.add('active');
-        lightboxContent.innerHTML = `
-    <p>${desc}</p>
-    <img src="${img.src}" alt="${img.alt}">
-`;
-
-      });
-    });
-
-    // Close modal (click X or background)
-    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.remove('active');
-    });
-
-    // Close with ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') lightbox.classList.remove('active');
-    });
-  </script>
-
-
-    <!-- Masonry and imagesLoaded libraries -->
-<!-- <script src="js/masonry.pkgd.min.js"></script>
-<script src="js/imagesloaded.pkgd.min.js"></script>
-
-<script>
-  // ---------- Masonry + imagesLoaded + video metadata ----------
-  const galleryGrids = document.querySelectorAll('.gallery');
-
-  galleryGrids.forEach(grid => {
-    const msnry = new Masonry(grid, {
-      itemSelector: '.image',
-      columnWidth: 260,
-      gutter: 20,
-      fitWidth: true
-    });
-
-    // Wait for images first
-    imagesLoaded(grid, { background: true }, function () {
-      // Then wait for videos
-      const videos = grid.querySelectorAll('video');
-
-      let loadedCount = 0;
-      const total = videos.length;
-
-      if (total === 0) {
-        msnry.layout(); // Only images
-      } else {
-        videos.forEach(video => {
-          video.addEventListener('loadedmetadata', () => {
-            loadedCount++;
-            if (loadedCount === total) {
-              msnry.layout(); // Re-layout when all videos are ready
-            }
-          });
-        });
-      }
-    });
-
-    // Optional: re-layout when showing the gallery (e.g., on tab click)
-    document.getElementById('c-btn')?.addEventListener('click', () => {
-      setTimeout(() => {
-        msnry.layout();
-      }, 100);
-    });
-  });
-
-  // ---------- Lazy Load Videos with IntersectionObserver ----------
-  const lazyVideos = document.querySelectorAll('video.lazy-video');
-
-  if ('IntersectionObserver' in window) {
-    const videoObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const video = entry.target;
-
-          if (!video.src) {
-            video.src = video.dataset.src;
-            video.load();
-          }
-
-          // Trigger layout update
-          video.addEventListener('loadedmetadata', () => {
-            Masonry.data(video.closest('.gallery'))?.layout();
-          });
-
-          video.classList.remove('lazy-video');
-          observer.unobserve(video);
-        }
-      });
-    }, {
-      rootMargin: '200px',
-      threshold: 0.25
-    });
-
-    lazyVideos.forEach(video => {
-      videoObserver.observe(video);
-    });
-  } else {
-    // Fallback for older browsers
-    lazyVideos.forEach(video => {
-      video.src = video.dataset.src;
-      video.load();
-      video.classList.remove('lazy-video');
-    });
-  }
-
-  // ---------- Fix layout if user lands directly on #videos ----------
-  window.addEventListener('load', () => {
-    if (window.location.hash === '#videos') {
-      setTimeout(() => {
-        galleryGrids.forEach(grid => {
-          Masonry.data(grid)?.layout();
-        });
-      }, 200);
-    }
-  });
-
-  // ---------- Lightbox Logic ----------
-  const lightbox = document.getElementById('lightbox');
-  const lightboxContent = document.getElementById('lightbox-content');
-  const closeBtn = document.getElementById('closeBtn');
-
-  function clearLightbox() {
-    lightboxContent.innerHTML = '';
-  }
-
-  document.querySelectorAll('.gallery .image').forEach(media => {
-    media.addEventListener('click', () => {
-      clearLightbox();
-      lightbox.style.display = 'flex';
-
-      if (media.tagName === 'IMG') {
-        const img = document.createElement('img');
-        img.src = media.src;
-        img.alt = media.alt || '';
-        img.style.maxWidth = '90vw';
-        img.style.maxHeight = '90vh';
-        lightboxContent.appendChild(img);
-      } else if (media.tagName === 'VIDEO') {
-        const video = document.createElement('video');
-        video.src = media.src;
-        video.controls = true;
-        video.autoplay = true;
-        video.muted = false;
-        video.playsInline = true;
-        video.style.maxWidth = '90vw';
-        video.style.maxHeight = '90vh';
-        lightboxContent.appendChild(video);
-      }
-    });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-    clearLightbox();
-  });
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = 'none';
-      clearLightbox();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      lightbox.style.display = 'none';
-      clearLightbox();
-    }
-  });
-</script> -->
+<footer class="footer pad-bottom">
+    &copy; 2025 BSIS - 1D &nbsp;|&nbsp; All rights reserved.
+  </footer>
+<script src="js/script.js"></script>
 
 
 </body>
+  
 </html>

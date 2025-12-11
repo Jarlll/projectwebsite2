@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Exam</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 100px;
+            background: linear-gradient(-40deg, rgb(255, 208, 120), rgb(255, 144, 40));
+        }
+        .nav {
+            display: flex;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+            top: 20px;
+            width: 80vw;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+        }
+        .nav ul {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 80vw;
+            height: auto;
+        }
+        .content h1 {
+            color: white;
+            font-family: fantasy;
+            text-shadow: 1px 1px 4px black;
+        }
+        .content img {
+            width: 80%;
+            border-radius: 30px;
+        }
+        .text {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            text-align: left;
+        }
+        .text h1 {
+            color: white;
+            font-family: fantasy;
+            text-shadow: 1px 1px 4px black;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80vw;
+        }
+        .images img {
+            width: 150px;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background-color: black;
+        }
+        .tag {
+            font-size: 50pt;
+        }
+        footer {
+            position: fixed;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1>Portfolio</h1>
+        <ul class="links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="others.html">Others</a></li>
+        </ul>
+    </div>
+        <div class="content">
+            <h1 class="tag">Songs</h1>
+            <br>
+            <img src="songs/Chase Atlantic.jfif" alt="">
+            <br>
+            <div class="text">
+            <h1>Chase Atlantic</h1>
+            <p>Chase Atlantic is one of my favorite bands who haves a lot of songs that suits my taste.</p>
+        </div>
+        <br>
+        <div class="images">
+            <img src="songs/1.jfif" alt="">
+            <img src="songs/2.jfif" alt="">
+            <img src="songs/4.jfif" alt="">
+            <img src="songs/5.jfif" alt="">
+        </div>
+        </div>
+        <hr>
+        <div class="content">
+            <h1 class="tag">Guitar</h1>
+            <br>
+            <img src="songs/🤎.jfif" alt="">
+            <br>
+            <div class="text">
+            <h1>Guitar</h1>
+            <p>I like playing guitar a lot specially when i want to cover some of my favorite songs.</p>
+        </div>
+        <br>
+        <div class="images">
+            <img src="songs/download (2).jfif" alt="">
+            <img src="songs/download (3).jfif" alt="">
+        </div>
+        </div>
+        <footer>&copy;  2025 BSIS - 1D. All rights reserved.</footer>
+</body>
+</html>

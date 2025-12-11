@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Exam</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            gap: 20px;
+            padding: 20px;
+            background: linear-gradient(-40deg, rgb(255, 208, 120), rgb(255, 144, 40));
+        }
+        .nav {
+            display: flex;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+            top: 20px;
+            width: 80vw;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+        }
+        .nav ul {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .home-content h1 {
+            color: white;
+            font-weight: 500;
+            font-family: fantasy;
+            font-size: 50pt;
+        }
+        .home-content p {
+            color: black;
+        }
+        .home-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+        }
+        footer {
+            position: fixed;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1>Portfolio</h1>
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="others.html">Others</a></li>
+        </ul>
+    </div>
+    <img src="save=follow _.jfif" alt="" class="home-img">
+    <div class="home-content">
+        <h1>WELCOME</h1>
+        <p>To Jarl's personal portfolio, explore all the things he likes; favorite songs, hobby, talent, and etc.</p>
+    </div>
+    <footer>&copy;  2025 BSIS - 1D. All rights reserved.</footer>
+</body>
+</html>

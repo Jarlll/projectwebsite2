@@ -1,0 +1,67 @@
+#000028  // Very Dark Navy
+          // Use for: main backgrounds, large sections, hero areas
+          // Why: strong contrast, professional, matches logo shading
+          // Example: page background, footer background, dashboard main canvas
+
+#000050  // Dark Blue
+          // Use for: navbar, headers, top bars, emphasized sections
+          // Why: readable, bold but not too dark, clean primary theme color
+          // Example: top navigation bar, section headers, login box header
+
+#003050  // Deep Teal-Blue
+          // Use for: card backgrounds, content boxes, subtle sections
+          // Why: softer than navy but still dark enough for contrast
+          // Example: card backgrounds, table headers, secondary panels
+
+#003078  // Medium Navy
+          // Use for: hover states, borders, UI separators, contrast text
+          // Why: adds a more vibrant blue tone without overpowering the UI
+          // Example: button hover, card outline, table row highlights
+
+#00A028  // Bright Green
+          // Use for: primary accent color, main CTAs, brand highlights
+          // Why: matches the green frame in the image; vibrant and attention-grabbing
+          // Example: "Submit" button, primary borders, active menu indicator
+
+#008028  // Medium Green
+          // Use for: secondary accents, subtle highlights, icon colors
+          // Why: calmer than bright green but still fits the theme
+          // Example: check icons, side menu highlight, active tab underline
+
+#005050  // Blue-Green Dark
+          // Use for: shadows, depth layers, subtle borders
+          // Why: creates depth without using pure black, keeps theme coherent
+          // Example: card shadow color, outline for contrast elements
+
+#005028  // Deep Green-Teal
+          // Use for: muted accents, backgrounds of secondary UI components
+          // Why: blends green + blue family for unified theme
+          // Example: sidebar background, secondary button backgrounds
+
+#F0A000  // Warm Orange
+          // Use for: subtle highlights, icons, decorative elements
+          // Why: adds warmth and energy without overwhelming contrast
+          // Example: icons, label backgrounds, timeline dots, badges
+
+#F05000  // Flame Orange
+          // Use for: strong contrast, call-to-action alerts
+          // Why: highest visual impact; ideal for attention-grabbing elements
+          // Example: CTA buttons, "Important" alerts, warning text, active states
+
+
+#001A4D   // Very dark navy blue (main banner background)
+#002868   // Deep royal blue (lighter parts of the gradient)
+#003B8E   // Medium blue highlights on the right side
+#015CAA   // Bright blue accent near the glowing areas
+#FFFFFF   // White text ("Together. We build digital future.")
+#F8F8F8   // Slightly off-white glow/shine around text
+#FFD700   // Gold/yellow glowing edge near the right side graphics
+#04A2C8   // Aqua/cyan glow in the blue flame graphic
+#0091FF   // Bright sky blue highlight near the flame
+#FF4C00   // Strong orange glow from the flame on the right
+#FF8800   // Soft orange-yellow from the flame outer glow
+#00A028   // Bright green (main frame color)
+#008028   // Medium green (inner frame/shadow)
+#005028   // Deep teal-green (darker accent)
+#0F1D4E
+

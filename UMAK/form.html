@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    padding: 30px;
+    box-shadow: 0 0 20px black;
+}
+
+.child {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    padding: 30px;
+    box-shadow: 0 0 20px black;
+    background-color: white;
+}
+
+.child:target {
+    display: flex;	
+    flex-direction: column;
+    z-index: 2;
+}
+
+/* Style the link like a button */
+.button-link {
+    padding: 10px 20px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+<form class="parent">
+    <input type="text" placeholder="Name">
+    <input type="text" placeholder="Email">
+    <input type="text" placeholder="Contact">
+
+    <!-- Link that opens modal -->
+    <a href="#popup" class="button-link">SUBMIT</a>
+</form>
+
+<div class="child" id="popup">
+    <p>Name: jsgdfdna</p>
+    <p>Email: dsgfgsg</p>
+    <p>Contact: dagdgdadg</p>
+
+    <!-- Add close link -->
+    <a href="#" class="button-link">Close</a>
+</div>
+
+</body>
+</html>

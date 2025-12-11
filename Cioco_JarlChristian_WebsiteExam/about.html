@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Exam</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            flex-direction: column;
+            gap: 50px;
+            padding: 20px;
+            background: linear-gradient(-40deg, rgb(255, 208, 120), rgb(255, 144, 40));
+        }
+        .nav {
+            display: flex;
+            position: fixed;
+            align-items: center;
+            justify-content: space-between;
+            top: 20px;
+            width: 80vw;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+        }
+        .nav ul {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .about {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
+            flex-direction: column;
+        }
+        .about ul {
+            list-style-type: square;
+        }
+        .about hr {
+            border: none;
+            height: 2px;
+            background-color: black;
+        }
+        .about h1 {
+            color: white;
+            font-family: fantasy;
+            text-shadow: 1px 1px 4px black;
+        }
+        footer {
+            position: fixed;
+            bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <h1>Portfolio</h1>
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="hobbies.html">Hobbies</a></li>
+            <li><a href="others.html">Others</a></li>
+        </ul>
+    </div>
+    <div class="about">
+        <h1>Personal Information</h1>
+        <br>
+        <ul>
+            <li>
+                <p>Name: Jarl Christian Cioco</p>
+            </li>
+            <li>
+                <p>Birthday: Dec. 9, 2006</p>
+            </li>
+            <li>
+                <p>Birth Place: Taguig City</p>
+            </li>
+            <li>
+                <p>Zodiac: Saggitarius</p>
+            </li>
+            <li>
+                <p>Height: 5'5</p>
+            </li>
+            <li>
+                <p>Age: 18</p>
+            </li>
+            <li>
+                <p>Siblings: 2</p>
+            </li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <h1>Website All About</h1>
+        <br>
+        <p>This Website is made for educational purpose, this was made by Jarl Christian Cioco from BSIS-1D</p>
+    </div>
+    <footer>&copy;  2025 BSIS - 1D. All rights reserved.</footer>
+</body>
+</html>

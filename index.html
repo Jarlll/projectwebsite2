@@ -6,95 +6,9 @@
   <title>Final Website</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/all.min.css" />
-  <style>
-          /* Main content styles */
-.hero-section {
-     position: relative;
-     display: flex;
-     justify-content: center;
-     width: 100%;
-     height: 100vh;
-     max-height: 100vh;
-     flex-direction: column;
-     animation: fade .8s ease-in ;
-}
-.cb-1 {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: flex-start;
-     background: none;
-     transform: scale(1);
-     box-shadow: 0;
-     padding-left: 100px;
-     width: 75%;
-     gap: 20px;
-}
-.cb-1 h1 {
-     font-size: 3rem;
-     line-height: 1;
-     font-family: "Montserrat", sans-serif;
-     font-weight: 800;
-     font-size: 4.5rem;
-     width: 100%;
-     text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-     color: white;
-}
-.cb-1 p {
-     font-size: 1.3rem;
-          line-height: 1;
-          font-family: "Open Sans", sans-serif;
-          font-weight: 500;
-          color: cyan;
-}
-.hero-icons {
-  position: relative;
-  display: flex;
-  position: absolute;
-  right: 1%;
-  bottom: 32vh;
-  z-index: 1;
-  animation: floatIcon 8s ease-in-out infinite alternate;
-}
-.hero-icons p {
-  font-size: 9rem;
-  opacity: 0.9;
-  transition: transform 0.3s ease;
-  filter: saturate(2) drop-shadow(0 5px 25px rgba(0, 0, 0, 0.5));
-}
-.hero-icons p:nth-child(1) {
-  transform: translateY(130px) translateX(70px);
-}
-
-.hero-icons p:nth-child(2) {
-  transform: translateY(0px) translateX(0px);
-}
-
-.hero-icons p:nth-child(3) {
-  transform: translateY(150px) translateX(-70px) rotate(25deg) scale(0.9);
-}
-.space {
-  text-shadow: 0 0 25px rgba(255, 100, 250, 0.2);
-  background: linear-gradient(90deg, #ff74c4, #a14fff);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  display: inline-block;
-  animation: floatIcon 8s ease-in-out infinite alternate;
-}
-@keyframes floatIcon {
-  0% { transform: translateY(0px) rotate(0deg);}
-  50% { transform: translateY(-10px) rotate(1deg) scale(1.010);}
-  100%  { transform: translateY(-15px) rotate(-1deg); scale: 1.020;}
-}
-@keyframes fade {
-     from {opacity: 0; }
-     to {opacity: 1; }
-}
-  </style>
 </head>
 <body>
-     <img src="internal/cictlogo.jfif" class="logo" alt="cictlogo">
+     <img src="pictures/cictlogo.jfif" class="logo" alt="cictlogo">
   <nav class="nav-bar">
      <h2>Clipnest</h2>
     <ul class="links">
@@ -104,7 +18,7 @@
           <ul class="dropdown">
     <li><a href="content.html">Image</a></li>
     <li><a href="videos.html">Videos</a></li>
-    <li><a href="#">Projects</a></li>
+    <li><a href="project.html">Projects</a></li>
   </ul>
      </li>
      <li><a href="contact.html"><i class="fas fa-paper-plane"></i>Contact</a></li>
@@ -120,6 +34,11 @@
     <p>📸</p>
     <p>🏞️</p>
   </div>
+  <footer class="footer footer--overlay">
+    <p>
+      &copy; 2025 BSIS - 1D &nbsp;|&nbsp; All rights reserved.
+    </p>
+  </footer>
   </div>
 </body>
 </html>
